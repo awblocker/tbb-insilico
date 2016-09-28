@@ -1,0 +1,76 @@
+data:
+  chrom_path: ../XuData/{id}_chrom.txt
+  n_chrom: 16
+  null_path: ../XuData/{id}_nullChrom.txt
+  regions_path: ../XuData/regionDefs/regions_{id}_800.txt
+  template_path: templates/template_{id}.txt
+detection_output:
+  detected_pattern: results/detected_{id}_chrom%02d.txt
+  fdr_pattern: results/threshold_{id}_chrom%02d.txt
+detection_params:
+  alpha: 0.001
+  compute_maxima_only: false
+  detect_maxima_only: true
+  method_fdr: bh
+  n_proc: 8
+  use_bayes_se: true
+  verbose: 1
+estimation_output:
+  coef_pattern: results/coef_{id}_chrom%02d.txt
+  null_coef_pattern: results/coef_null_{id}_chrom%02d.txt
+  null_param_pattern: results/params_null_{id}_chrom%02d.txt
+  null_se_pattern: results/se_null_{id}_chrom%02d.txt
+  param_pattern: results/params_{id}_chrom%02d.txt
+  se_pattern: results/se_{id}_chrom%02d.txt
+estimation_params:
+  block_width: 2000
+  diag_approx: true
+  fix_mu: false
+  fix_sigmasq: false
+  max_iter: 1024
+  max_mem: 2048
+  min_iter: 48
+  timing: true
+  tol: 1.0e-06
+  verbose: 1
+id: H_1-combined
+mcmc_output:
+  cluster_pattern: results/mcmc_clusters_{id}_chrom%02d.txt
+  detections_pattern: results/mcmc_detections_{id}_chrom%02d_pm%d.txt
+  null_cluster_pattern: results/mcmc_clusters_null_{id}_chrom%02d.txt
+  null_out_pattern: results/mcmc_draws_null_{id}_chrom%02d.tar
+  null_param_pattern: results/mcmc_params_null_{id}_chrom%02d.txt
+  null_summary_pattern: results/mcmc_summaries_null_{id}_chrom%02d.txt
+  out_pattern: results/mcmc_draws_{id}_chrom%02d.tar
+  param_pattern: results/mcmc_params_{id}_chrom%02d.txt
+  summary_pattern: results/mcmc_summaries_{id}_chrom%02d.txt
+mcmc_params:
+  initialize_params_from_em: false
+  initialize_theta_from_em: false
+  mcmc_iterations: 2001
+  n_burnin: 201
+  path_scratch: /scratch
+mcmc_summaries:
+  bp_per_nucleosome: 160.0
+  cluster_bw: 20.0
+  cluster_min_spacing: 147
+  cluster_width: 147
+  concentration_pm: 0,1,2,3
+  p_detect: 0.8
+  p_threshold: 0.5,0.33,0.25,0.10,0.05,0.03,0.01
+  path_scratch: /scratch
+  q_sparsity: 0.5,0.6,0.7,0.8,0.9
+  width_local: 147
+plotting_output:
+  gene_plot_pattern: plots/gene_{id}_%s.png
+  offset_plot_path: plots/offset_{id}.png
+  spacing_plot_path: plots/histNucleosomeSpacing_{id}.png
+prior:
+  a0: 7.0
+  b0: 10.0
+  k0: 0.1
+  mu0: 0
+processing_output:
+  nucleosome_pattern: postprocess/nucleosomes_{id}_chrom%02d.txt
+  offset_pattern: postprocess/offsets_{id}_chrom%02d.txt
+  separator: ''

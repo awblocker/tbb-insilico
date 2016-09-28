@@ -1,0 +1,14 @@
+#!/bin/bash
+#BSUB -J mcmcPowerAnalysisNull
+#BSUB -n 132
+#BSUB -q airoldi
+#BSUB -a openmpi
+#BSUB -cwd /n/airoldifs2/lab/ablocker/nucleosomeResearch/massiveParallelDeconvolutionPipeline
+#BSUB -oo dump/mcmcPowerAnalysisNull.log
+#BSUB -eo dump/mcmcPowerAnalysisNull.err
+
+for (( CHROM = 1; CHROM <= 10; CHROM++ ));
+do
+    mpirun.lsf cplate_deconvolve_mcmc -c $CHROM --null powerAnalysis/powerAnalysis.yml
+done
+

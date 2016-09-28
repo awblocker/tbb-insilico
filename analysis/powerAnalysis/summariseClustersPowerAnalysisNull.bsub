@@ -1,0 +1,14 @@
+#!/bin/bash
+#BSUB -J summariseClustersPowerAnalysisNull
+#BSUB -n 12
+#BSUB -q airoldi
+#BSUB -R 'span[ptile=12]'
+#BSUB -cwd /n/airoldifs2/lab/ablocker/nucleosomeResearch/massiveParallelDeconvolutionPipeline
+#BSUB -oo dump/summariseClustersPowerAnalysisNull.log
+#BSUB -eo dump/summariseClustersPowerAnalysisNull.err
+
+for (( CHROM = 1; CHROM <= 10; CHROM++ ));
+do
+    cplate_summarise_clusters_mcmc -c $CHROM --null powerAnalysis/powerAnalysis.yml
+done
+
