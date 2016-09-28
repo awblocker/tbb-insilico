@@ -1,3 +1,9 @@
+# Hidden files
+.*
+
+# Python bytecode
+*.pyc
+
 # History files
 .Rhistory
 .Rapp.history
